@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 12:42:38 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/20 13:15:47 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/20 18:43:32 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	{
 		del(lst->content);
 		free(lst);
+		lst = NULL;
 	}
 }

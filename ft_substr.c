@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:56:50 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/20 13:07:46 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:49:27 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
+	size_t	i;
 	char			*retour;
 
+	i = 0;
 	retour = NULL;
-	if (!(retour = malloc(sizeof(s) * len + 1)))
+	if (!s)
 		return (NULL);
+	if (!(retour = malloc(sizeof(*s) * (len + 1))))
+		return (NULL);
+	retour[i] = '\0';
+	while (i < start)
+	{
+		if (!s[i])
+			return (retour);
+		i++;
+	}
 	i = 0;
 	while (i < len && s[start + i])
 	{

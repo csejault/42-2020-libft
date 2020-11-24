@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:36:12 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/18 20:37:05 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:19:55 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	char	*ret;
 
 	len = ft_strlen(s);
-	if (!(ret = malloc(sizeof(ret) * len + 1)))
+	if (!(ret = malloc(sizeof(*ret) * (len + 1))))
 		return (NULL);
 	i = 0;
 	while (s[i])

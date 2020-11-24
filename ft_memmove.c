@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:30:38 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/18 20:30:56 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:55:12 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char tmp[n];
+	if (!dest && !src)
+		return (NULL);
 
-	ft_memcpy(tmp, src, n);
-	ft_memcpy(dest, tmp, n);
+		if (dest<src)
+	ft_memcpy(dest, src, n);
+		else
+			while (n-- > 0)
+				((char *)dest)[n] = ((char *)src)[n];
 	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:32:11 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/20 13:06:05 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:38:01 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ char	**ft_split(char const *s, char c)
 	int		l;
 
 	ret = NULL;
+	if (!s)
+		return (NULL);
 	idx[0] = 0;
 	i = 0;
 	l = 0;

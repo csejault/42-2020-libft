@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csejault <csejault@studesizet.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:38:29 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/18 20:39:07 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/23 16:43:24 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t lend;
-	size_t lens;
-	size_t i;
+	size_t	lend;
+	size_t	lens;
 
-	lend = ft_strlen(dst);
-	lens = ft_strlen(src);
-	if (size == 0)
-		return (lend + lens);
-	i = 0;
-	while (src[i] && i < size - 1)
+	lend = 0;
+	lens = 0;
+	while (dst[lend] && lend < size)
+		lend++;
+	while (src[lens] && lend + lens +1 < size)
 	{
-		dst[lend + i] = src[i];
-		i++;
+		dst[lend + lens] = src[lens];
+		lens++;
 	}
-	if (i < size - 1)
-		dst[lend + i] = '\0';
-	return (lend + lens);
+	if (lend != size)
+		dst[lend + lens] = '\0';
+	return (lend + ft_strlen(src));
 }

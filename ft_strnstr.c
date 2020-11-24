@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:47:33 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/18 20:47:50 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/23 18:49:25 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	if (!little[j])
+	if (!(*little))
 		return ((char *)big);
 	while (big[i] && i < len)
 	{

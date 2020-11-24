@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:48:41 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/18 20:49:41 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/24 10:00:47 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ char		*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	len;
 
+	ret = NULL;
+	if (!s1)
+		return (ret);
 	len = ft_strlen(s1);
 	i = 0;
 	while (ft_char_present(s1[i], set))
