@@ -6,20 +6,57 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:32:11 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/23 17:38:01 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:43:35 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	freemalloc(char **ret, int idx)
+void	fill_tabs(char *ret, char const *s, int l, int *idx)
 {
-	while (idx >= 0)
+	int j;
+
+	j = 0;
+	while (l > j)
 	{
-		free(ret[idx]);
-		idx--;
+		ret[j] = s[idx[0]];
+		j++;
+		idx[0]++;
 	}
-	free(ret);
+	ret[j] = '\0';
+}
+
+int		count_letter(char const *s, char c, int *idx)
+{
+	int cl;
+
+	cl = 0;
+	while (c == s[idx[0]])
+		idx[0]++;
+	while (s[idx[0]] && c != s[idx[0]])
+	{
+		cl++;
+		idx[0]++;
+	}
+	idx[0] = idx[0] - cl;
+	return (cl);
+}
+
+void	malloctab(char **ret, int *idx, const char *s, char c)
+{
+	int l;
+
+	l = count_letter(s, c, idx);
+	if (!(*ret = malloc(sizeof(*s) * (l + 1))))
+	{
+		while (idx[0] >= 0)
+		{
+			free(ret[idx[0]]);
+			idx[0]--;
+		}
+		free(ret);
+	}
+	fill_tabs(*ret, s, l, idx);
 }
 
 int		count_word(char const *s, char c)
@@ -43,36 +80,6 @@ int		count_word(char const *s, char c)
 	return (cw);
 }
 
-int		count_letter(char const *s, char c, int *idx)
-{
-	int cl;
-
-	cl = 0;
-	while (c == s[idx[0]])
-		idx[0]++;
-	while (s[idx[0]] && c != s[idx[0]])
-	{
-		cl++;
-		idx[0]++;
-	}
-	idx[0] = idx[0] - cl;
-	return (cl);
-}
-
-void	fill_tabs(char *ret, char const *s, int l, int *idx)
-{
-	int j;
-
-	j = 0;
-	while (l > j)
-	{
-		ret[j] = s[idx[0]];
-		j++;
-		idx[0]++;
-	}
-	ret[j] = '\0';
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**ret;
@@ -92,13 +99,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (w > i)
 	{
-		l = count_letter(s, c, idx);
-		if (!(*ret = malloc(sizeof(*s) * (l + 1))))
-			{
-				freemalloc(ret,idx[0]);
-				return (NULL);
-			}
-		fill_tabs(*ret, s, l, idx);
+		malloctab(ret, idx, s, c);
 		ret++;
 		i++;
 	}
