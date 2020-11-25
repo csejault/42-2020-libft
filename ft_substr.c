@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:56:50 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/23 19:49:27 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:20:20 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	char			*retour;
+	char	*retour;
 
 	i = 0;
 	retour = NULL;
