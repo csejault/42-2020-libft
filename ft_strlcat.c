@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csejault <csejault@studesizet.42.fr>          +#+  +:+       +#+        */
+/*   By: csejault </var/mail/csejault>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 20:38:29 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/23 16:43:24 by csejault         ###   ########.fr       */
+/*   Created: 2020/11/25 11:09:29 by csejault          #+#    #+#             */
+/*   Updated: 2020/11/25 11:10:26 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	lens = 0;
 	while (dst[lend] && lend < size)
 		lend++;
-	while (src[lens] && lend + lens +1 < size)
+	while (src[lens] && lend + lens + 1 < size)
 	{
 		dst[lend + lens] = src[lens];
 		lens++;

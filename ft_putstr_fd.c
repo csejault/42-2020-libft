@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:52:11 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/24 10:16:07 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:08:56 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 	i = -1;
 	if (!s)
-		return;
+		return ;
 	while (s[++i])
 		ft_putchar_fd(s[i], fd);
 }

@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:29:54 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/23 10:29:37 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:07:34 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t i;
 
 	i = 0;
-
 	if (!dest && !src)
 		return (dest);
 	while (i < n)
