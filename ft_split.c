@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	fill_tabs(char *ret, char const *s, int l, int *idx)
+static void	fill_tabs(char *ret, char const *s, int l, int *idx)
 {
 	int j;
 
@@ -26,7 +26,7 @@ void	fill_tabs(char *ret, char const *s, int l, int *idx)
 	ret[j] = '\0';
 }
 
-int		count_letter(char const *s, char c, int *idx)
+static int	count_letter(char const *s, char c, int *idx)
 {
 	int cl;
 
@@ -42,7 +42,7 @@ int		count_letter(char const *s, char c, int *idx)
 	return (cl);
 }
 
-void	malloctab(char **ret, int *idx, const char *s, char c)
+static int	malloctab(char **ret, int *idx, const char *s, char c)
 {
 	int l;
 
@@ -55,11 +55,13 @@ void	malloctab(char **ret, int *idx, const char *s, char c)
 			idx[0]--;
 		}
 		free(ret);
+		return (0);
 	}
 	fill_tabs(*ret, s, l, idx);
+		return (1);
 }
 
-int		count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int cw;
 	int nw;
@@ -80,26 +82,25 @@ int		count_word(char const *s, char c)
 	return (cw);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	char	**ret;
 	int		idx[1];
 	int		w;
 	int		i;
-	int		l;
 
 	ret = NULL;
 	if (!s)
 		return (NULL);
 	idx[0] = 0;
 	i = 0;
-	l = 0;
 	w = count_word(s, c);
 	if (!(ret = malloc(sizeof(s) * (w + 1))))
 		return (NULL);
 	while (w > i)
 	{
-		malloctab(ret, idx, s, c);
+		if (!(malloctab(ret, idx, s, c)))
+			return (ret);
 		ret++;
 		i++;
 	}
