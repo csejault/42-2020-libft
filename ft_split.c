@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:32:11 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/25 16:43:35 by csejault         ###   ########.fr       */
+/*   Updated: 2020/11/26 13:38:32 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	malloctab(char **ret, int *idx, const char *s, char c)
 		return (0);
 	}
 	fill_tabs(*ret, s, l, idx);
-		return (1);
+	return (1);
 }
 
 static int	count_word(char const *s, char c)
