@@ -4,7 +4,7 @@ OBJ		= $(SRC:.c=.o)
 BON_OBJ		= $(BONUS:.c=.o)
 NAME		= libft.a
 FLAGS		= -Wall -Wextra -Werror
-CC		= gcc
+CC		= clang
 RM		= rm -f
 
 .c.o:		
