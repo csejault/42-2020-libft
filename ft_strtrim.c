@@ -6,13 +6,13 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:48:41 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/24 10:00:47 by csejault         ###   ########.fr       */
+/*   Updated: 2020/12/14 11:33:45 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_char_present(char c, char const *set)
+static int	lt_char_present(char c, char const *set)
 {
 	int i;
 
@@ -34,9 +34,9 @@ char		*ft_strtrim(char const *s1, char const *set)
 		return (ret);
 	len = ft_strlen(s1);
 	i = 0;
-	while (ft_char_present(s1[i], set))
+	while (lt_char_present(s1[i], set))
 		i++;
-	while (s1[i] && ft_char_present(s1[len - 1], set))
+	while (s1[i] && lt_char_present(s1[len - 1], set))
 		len--;
 	ret = ft_substr(s1, i, len - i);
 	return (ret);

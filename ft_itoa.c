@@ -6,13 +6,13 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 13:10:43 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/24 10:29:01 by csejault         ###   ########.fr       */
+/*   Updated: 2020/12/14 11:35:16 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		len_n(long n)
+static	int		lt_len_n(long n)
 {
 	int	len;
 
@@ -26,7 +26,7 @@ static	int		len_n(long n)
 	return (++len);
 }
 
-static	void	fill_ret(char *ret, long n, int len)
+static	void	lt_fill_ret(char *ret, long n, int len)
 {
 	ret[0] = (n < 0) ? '-' : 0;
 	ret[len] = '\0';
@@ -44,9 +44,9 @@ char			*ft_itoa(int n)
 	char	*ret;
 
 	ret = NULL;
-	len = len_n((long)n);
+	len = lt_len_n((long)n);
 	if (!(ret = malloc(sizeof(*ret) * (len + 1))))
 		return (NULL);
-	fill_ret(ret, n, len);
+	lt_fill_ret(ret, n, len);
 	return (ret);
 }

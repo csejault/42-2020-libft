@@ -6,13 +6,13 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 20:32:11 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/26 13:38:32 by csejault         ###   ########.fr       */
+/*   Updated: 2020/12/14 11:32:28 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	fill_tabs(char *ret, char const *s, int l, int *idx)
+static void	lt_fill_tabs(char *ret, char const *s, int l, int *idx)
 {
 	int j;
 
@@ -26,7 +26,7 @@ static void	fill_tabs(char *ret, char const *s, int l, int *idx)
 	ret[j] = '\0';
 }
 
-static int	count_letter(char const *s, char c, int *idx)
+static int	lt_count_letter(char const *s, char c, int *idx)
 {
 	int cl;
 
@@ -42,11 +42,11 @@ static int	count_letter(char const *s, char c, int *idx)
 	return (cl);
 }
 
-static int	malloctab(char **ret, int *idx, const char *s, char c)
+static int	lt_malloctab(char **ret, int *idx, const char *s, char c)
 {
 	int l;
 
-	l = count_letter(s, c, idx);
+	l = lt_count_letter(s, c, idx);
 	if (!(*ret = malloc(sizeof(*s) * (l + 1))))
 	{
 		while (idx[0] >= 0)
@@ -57,11 +57,11 @@ static int	malloctab(char **ret, int *idx, const char *s, char c)
 		free(ret);
 		return (0);
 	}
-	fill_tabs(*ret, s, l, idx);
+	lt_fill_tabs(*ret, s, l, idx);
 	return (1);
 }
 
-static int	count_word(char const *s, char c)
+static int	lt_count_word(char const *s, char c)
 {
 	int cw;
 	int nw;
@@ -94,12 +94,12 @@ char		**ft_split(char const *s, char c)
 		return (NULL);
 	idx[0] = 0;
 	i = 0;
-	w = count_word(s, c);
+	w = lt_count_word(s, c);
 	if (!(ret = malloc(sizeof(s) * (w + 1))))
 		return (NULL);
 	while (w > i)
 	{
-		if (!(malloctab(ret, idx, s, c)))
+		if (!(lt_malloctab(ret, idx, s, c)))
 			return (ret);
 		ret++;
 		i++;
