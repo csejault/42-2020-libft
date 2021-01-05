@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 16:49:34 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/05 14:52:54 by csejault         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::   */
+/*	 libft.h											:+:		 :+:	:+:   */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: csejault <csejault@student.42.fr>			+#+  +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2020/11/25 16:49:34 by csejault		   #+#	  #+#			  */
+/*	 Updated: 2021/01/05 14:52:54 by csejault		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -15,6 +15,18 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+typedef struct	s_gnl
+{
+	int			retreadf;
+	char		*cache;
+}				t_gnl;
 
 typedef struct	s_list
 {
@@ -57,6 +69,7 @@ char			**ft_split(char const *s, char c);
 int				ft_lstsize(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_gnl(int fd, char **line);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
