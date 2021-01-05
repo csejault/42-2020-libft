@@ -6,7 +6,7 @@
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 16:49:34 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/25 17:47:46 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/05 14:32:49 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strdup(const char *s);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_itoa(int n);
+char			*ft_utoa(unsigned int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			**ft_split(char const *s, char c);
 int				ft_lstsize(t_list *lst);
