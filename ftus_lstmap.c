@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ftus_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 13:10:43 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/05 14:48:11 by csejault         ###   ########.fr       */
+/*   Created: 2020/11/25 16:16:21 by csejault          #+#    #+#             */
+/*   Updated: 2020/11/25 16:18:07 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_utoa(unsigned int n)
+t_list	*ftus_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	cp_n;
-	int				len;
-	char			*ret;
+	t_list	*ret;
+	int		s;
 
-	cp_n = n;
-	len = 0;
-	while (n > 9)
+	ret = NULL;
+	while (lst)
 	{
-		len++;
-		n = n / 10;
-	}
-	len++;
-	ret = malloc(sizeof(*ret) * (len + 1));
-	if (!ret)
-		return (NULL);
-	n = cp_n;
-	ret[len] = '\0';
-	while (len > 0)
-	{
-		ret[--len] = n % 10 + '0';
-		n = n / 10;
+		s = ft_lstsize(ret);
+		ft_lstadd_back(&ret, ftus_lstnew(f(lst->content)));
+		lst = lst->next;
+		if (ft_lstsize(ret) == s)
+		{
+			ft_lstclear(&ret, del);
+			return (NULL);
+		}
 	}
 	return (ret);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   ftus_gnl.c 		                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -29,7 +29,7 @@ int		fill_line(char **line, t_gnl *gnl, size_t i)
 	j = i;
 	len = ft_strlen(gnl->cache);
 	tofree = gnl->cache;
-	if (!(*line = ft_substr(gnl->cache, 0, i++)))
+	if (!(*line = ftus_substr(gnl->cache, 0, i++)))
 		return (-1);
 	while (gnl->cache[j] && gnl->cache[j] != '\n')
 		j++;
@@ -40,7 +40,7 @@ int		fill_line(char **line, t_gnl *gnl, size_t i)
 		return (0);
 	}
 	len -= i;
-	if (!(gnl->cache = ft_substr(gnl->cache, i, len)))
+	if (!(gnl->cache = ftus_substr(gnl->cache, i, len)))
 	{
 		free(*line);
 		return (-1);
@@ -64,9 +64,9 @@ int		read_file(int fd, t_gnl *gnl)
 	}
 	buf[gnl->retreadf] = '\0';
 	if (gnl->cache)
-		gnl->cache = ft_strjoin(gnl->cache, buf);
+		gnl->cache = ftus_strjoin(gnl->cache, buf);
 	else
-		gnl->cache = ft_substr(buf, 0, ft_strlen(buf));
+		gnl->cache = ftus_substr(buf, 0, ft_strlen(buf));
 	if (tofree)
 		free(tofree);
 	free(buf);
@@ -82,7 +82,7 @@ int		read_cache(t_gnl *gnl, int fd, char **line)
 	i = 0;
 	if (!gnl->retreadf && !gnl->cache[0])
 	{
-		*line = ft_substr("", 0, 0);
+		*line = ftus_substr("", 0, 0);
 		if (gnl->cache)
 		{
 			free(gnl->cache);
@@ -104,7 +104,7 @@ int		read_cache(t_gnl *gnl, int fd, char **line)
 	return (read_cache(gnl, fd, line));
 }
 
-int		get_next_line(int fd, char **line)
+int		ftus_gnl(int fd, char **line)
 {
 	static t_gnl	gnl[257];
 	int				retcache;

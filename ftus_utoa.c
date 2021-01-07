@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ftus_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 20:37:17 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/23 20:03:00 by csejault         ###   ########.fr       */
+/*   Created: 2020/11/18 13:10:43 by csejault          #+#    #+#             */
+/*   Updated: 2021/01/05 14:48:11 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char			*ftus_utoa(unsigned int n)
 {
-	int		len;
-	int		i;
-	int		j;
-	char	*ret;
+	unsigned int	cp_n;
+	int				len;
+	char			*ret;
 
-	ret = NULL;
-	if (!s1 || !s2)
+	cp_n = n;
+	len = 0;
+	while (n > 9)
+	{
+		len++;
+		n = n / 10;
+	}
+	len++;
+	ret = malloc(sizeof(*ret) * (len + 1));
+	if (!ret)
 		return (NULL);
-	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	if (!(ret = malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		ret[i] = s1[i];
-	j = -1;
-	while (s2[++j])
-		ret[i + j] = s2[j];
-	ret[i + j] = 0;
+	n = cp_n;
+	ret[len] = '\0';
+	while (len > 0)
+	{
+		ret[--len] = n % 10 + '0';
+		n = n / 10;
+	}
 	return (ret);
 }

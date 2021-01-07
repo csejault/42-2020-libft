@@ -48,7 +48,7 @@ char *ftus_ptohexa (unsigned long nbr)
 	ret = NULL;
 	i = 16;
 	if (!nbr)
-		return (ft_strdup("0x0"));
+		return (ftus_strdup("0x0"));
 	i -= count_z(nbr);
 	if (i >=14)
 		ret = us_fill_ret(nbr, i, 0);

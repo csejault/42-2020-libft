@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ftus_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 20:45:29 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/24 10:06:49 by csejault         ###   ########.fr       */
+/*   Created: 2020/11/18 20:36:12 by csejault          #+#    #+#             */
+/*   Updated: 2020/11/23 19:19:55 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ftus_strdup(const char *s)
 {
-	char			*ret;
-	unsigned int	i;
+	size_t	len;
+	size_t	i;
+	char	*ret;
 
-	ret = NULL;
-	if (!s)
-		return (ret);
-	if (!(ret = malloc(sizeof(*ret) * (ft_strlen(s) + 1))))
+	len = ft_strlen(s);
+	if (!(ret = malloc(sizeof(*ret) * (len + 1))))
 		return (NULL);
 	i = 0;
 	while (s[i])
 	{
-		ret[i] = f(i, s[i]);
+		ret[i] = s[i];
 		i++;
 	}
 	ret[i] = '\0';

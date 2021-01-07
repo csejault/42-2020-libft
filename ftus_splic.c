@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ftus_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -82,7 +82,7 @@ static int	lt_count_word(char const *s, char c)
 	return (cw);
 }
 
-char		**ft_split(char const *s, char c)
+char		**ftus_split(char const *s, char c)
 {
 	char	**ret;
 	int		idx[1];

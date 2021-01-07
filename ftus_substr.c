@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ftus_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 16:16:21 by csejault          #+#    #+#             */
-/*   Updated: 2020/11/25 16:18:07 by csejault         ###   ########.fr       */
+/*   Created: 2020/11/18 20:56:50 by csejault          #+#    #+#             */
+/*   Updated: 2020/11/25 16:20:20 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+char	*ftus_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*ret;
-	int		s;
+	size_t	i;
+	char	*retour;
 
-	ret = NULL;
-	while (lst)
+	i = 0;
+	retour = NULL;
+	if (!s)
+		return (NULL);
+	if (!(retour = malloc(sizeof(*s) * (len + 1))))
+		return (NULL);
+	retour[i] = '\0';
+	while (i < start)
 	{
-		s = ft_lstsize(ret);
-		ft_lstadd_back(&ret, ft_lstnew(f(lst->content)));
-		lst = lst->next;
-		if (ft_lstsize(ret) == s)
-		{
-			ft_lstclear(&ret, del);
-			return (NULL);
-		}
+		if (!s[i])
+			return (retour);
+		i++;
 	}
-	return (ret);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		retour[i] = s[start + i];
+		i++;
+	}
+	retour[i] = '\0';
+	return (retour);
 }
