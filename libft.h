@@ -66,6 +66,7 @@ char			*ft_itoa(int n);
 char			*ft_utoa(unsigned int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ftus_utoabase(unsigned int toconv, char *baseto);
+char			*ftus_ptohexa(unsigned long nbr);
 char			**ft_split(char const *s, char c);
 int				ft_lstsize(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
