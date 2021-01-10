@@ -1,20 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftus_ptohexa.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/10 19:45:38 by csejault          #+#    #+#             */
+/*   Updated: 2021/01/10 19:51:26 by csejault         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_z (unsigned long nbr)
+static int		count_z(unsigned long nbr)
 {
 	int z;
 
 	z = 16;
 	while (nbr)
 	{
-		nbr /=16;
+		nbr /= 16;
 		z--;
 	}
 	return (z);
 }
 
-static char *us_fill_ret(unsigned long nbr, int i, int trunc)
+static char		*us_fill_ret(unsigned long nbr, int i, int trunc)
 {
 	char			*ret;
 	char			*base;
@@ -26,8 +37,8 @@ static char *us_fill_ret(unsigned long nbr, int i, int trunc)
 		mal_0x = 2;
 	i += mal_0x;
 	ret = malloc(sizeof(*ret) * (i + 1));
-		if (!ret)
-			return (NULL);
+	if (!ret)
+		return (NULL);
 	if (trunc)
 		ft_memcpy(ret, "0x", 2);
 	ret[i] = '\0';
@@ -40,7 +51,7 @@ static char *us_fill_ret(unsigned long nbr, int i, int trunc)
 	return (ret);
 }
 
-char *ftus_ptohexa (unsigned long nbr)
+char			*ftus_ptohexa(unsigned long nbr)
 {
 	char			*ret;
 	int				i;
@@ -50,7 +61,7 @@ char *ftus_ptohexa (unsigned long nbr)
 	if (!nbr)
 		return (ftus_strdup("0x0"));
 	i -= count_z(nbr);
-	if (i >=14)
+	if (i >= 14)
 		ret = us_fill_ret(nbr, i, 0);
 	else
 		ret = us_fill_ret(nbr, i, 1);
