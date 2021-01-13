@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftus_itoa.c                                          :+:      :+:    :+:   */
+/*   ftus_itoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 13:10:43 by csejault          #+#    #+#             */
-/*   Updated: 2020/12/14 11:35:16 by csejault         ###   ########.fr       */
+/*   Created: 2021/01/13 09:14:29 by csejault          #+#    #+#             */
+/*   Updated: 2021/01/13 09:14:35 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,42 @@ static	int		lt_len_n(long n)
 {
 	int	len;
 
-	len = (n < 0) ? 1 : 0;
-	n = (n < 0) ? -n : n;
+	if (n < 0)
+	{
+		len = 1;
+		n = -n;
+	}
+	else
+		len = 0;
 	while (n > 9)
 	{
 		len++;
 		n = n / 10;
 	}
-	return (++len);
+	len++;
+	return (len);
 }
 
 static	void	lt_fill_ret(char *ret, long n, int len)
 {
-	ret[0] = (n < 0) ? '-' : 0;
-	ret[len] = '\0';
-	n = (n < 0) ? n * -1 : n;
-	while (len > 0 && ret[len - 1] != '-')
+	int sign;
+
+	if (n < 0)
 	{
-		ret[--len] = n % 10 + '0';
+		ret[0] = '-';
+		n = n * -1;
+		sign = 1;
+	}
+	else
+	{
+		ret[0] = '0';
+		sign = 0;
+	}
+	ret[len] = '\0';
+	while (len > 0 + sign)
+	{
+		len--;
+		ret[len] = n % 10 + '0';
 		n = n / 10;
 	}
 }
@@ -45,7 +63,8 @@ char			*ftus_itoa(int n)
 
 	ret = NULL;
 	len = lt_len_n((long)n);
-	if (!(ret = malloc(sizeof(*ret) * (len + 1))))
+	ret = malloc(sizeof(*ret) * (len + 1));
+	if (!ret)
 		return (NULL);
 	lt_fill_ret(ret, n, len);
 	return (ret);
