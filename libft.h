@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/10 19:54:44 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/13 12:54:02 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void			*ft_memchr(const void *s, int c, size_t n);
 void			*ftus_calloc(size_t nmemb, size_t size);
 char			*ftus_substr(char const *s, unsigned int start, size_t len);
 char			*ftus_strjoin(char const *s1, char const *s2);
+char			*ftus_strj_free(char *s1, char *s2);
+char			*ftus_strj_fr_1(char *s1, char const *s2);
+char			*ftus_strj_fr_2(char const *s1, char *s2);
 char			*ftus_strtrim(char const *s1, char const *set);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
