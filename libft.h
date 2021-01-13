@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::   */
-/*	 libft.h											:+:		 :+:	:+:   */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: csejault <csejault@student.42.fr>			+#+  +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2020/11/25 16:49:34 by csejault		   #+#	  #+#			  */
-/*	 Updated: 2021/01/05 14:52:54 by csejault		  ###	########.fr		  */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
+/*   Updated: 2021/01/10 19:54:44 by csejault         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -36,7 +36,8 @@ typedef struct	s_list
 
 t_list			*ftus_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
-t_list			*ftus_lstmap(t_list *lst, void*(*f)(void *), void(*del)(void *));
+t_list			*ftus_lstmap
+				(t_list *lst, void*(*f)(void *), void(*del)(void *));
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));

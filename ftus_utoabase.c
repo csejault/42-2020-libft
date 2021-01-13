@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftus_utoabase.c                                      :+:      :+:    :+:   */
+/*   ftus_utoabase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/05 17:32:23 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/06 12:15:38 by csejault         ###   ########.fr       */
+/*   Created: 2021/01/10 19:52:52 by csejault          #+#    #+#             */
+/*   Updated: 2021/01/10 19:53:22 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t size_ret(unsigned int toconv, size_t l_base)
+static size_t	size_ret(unsigned int toconv, size_t l_base)
 {
 	size_t	l_ret;
 
@@ -25,12 +25,12 @@ static size_t size_ret(unsigned int toconv, size_t l_base)
 	return (l_ret);
 }
 
-char *ftus_utoabase(unsigned int toconv, char *baseto)
+char			*ftus_utoabase(unsigned int toconv, char *baseto)
 {
-	char	*ret;
-	size_t	l_base;
-	size_t	l_ret;
-	unsigned int u;
+	char			*ret;
+	size_t			l_base;
+	size_t			l_ret;
+	unsigned int	u;
 
 	ret = NULL;
 	if (!baseto)
