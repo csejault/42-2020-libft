@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:52:52 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/10 19:53:22 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/15 08:04:34 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	size_ret(unsigned int toconv, size_t l_base)
 	size_t	l_ret;
 
 	l_ret = 1;
-	while (toconv > l_base)
+	while (toconv >= l_base)
 	{
 		l_ret++;
 		toconv /= l_base;
@@ -34,10 +34,10 @@ char			*ftus_utoabase(unsigned int toconv, char *baseto)
 
 	ret = NULL;
 	if (!baseto)
-		return (ret);
+		return (NULL);
 	l_base = ft_strlen(baseto);
 	if (l_base < 2)
-		return (ret);
+		return (NULL);
 	l_ret = size_ret(toconv, l_base);
 	ret = malloc(sizeof(*ret) * (l_ret + 1));
 	if (!ret)
