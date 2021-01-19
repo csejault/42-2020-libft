@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/19 17:02:50 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:17:01 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ char			*ftus_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ftus_utoabase(unsigned int toconv, char *baseto);
 char			*ftus_ptohexa(unsigned long nbr);
 char			**ftus_split(char const *s, char c);
+char			**ftus_up_split(int *words, char const *s, char c);
 int				ft_lstsize(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
