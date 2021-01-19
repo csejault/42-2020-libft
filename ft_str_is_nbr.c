@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_nbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csejault <csejault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:03:49 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/19 16:28:18 by csejault         ###   ########.fr       */
+/*   Created: 2021/01/19 17:00:24 by csejault          #+#    #+#             */
+/*   Updated: 2021/01/19 17:00:30 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_str_is_nbr(char *str)
 {
-	size_t i;
+	int i;
+	int sign;
 
+	if (!str)
+		return (0);
+	sign = 0;
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
+	if (str[0] == '-' || str[0] == '+')
+	{
+		sign = 1;
 		i++;
-	if (s1[i] || s2[i])
-		return (-1);
-	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+	}
+	while (str[i] && ft_isdigit(str[i]))
+		i++;
+	if (str[i] || (i - sign == 0))
+		return (0);
+	else
+		return (1);
 }
