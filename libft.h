@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/19 17:17:01 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/20 10:04:58 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_list			*ftus_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ftus_lstmap
 				(t_list *lst, void*(*f)(void *), void(*del)(void *));
+void			ft_free_split(char **tofree);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
