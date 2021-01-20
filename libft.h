@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/20 10:04:58 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/20 10:43:43 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/uio.h>
+#include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
@@ -88,6 +89,7 @@ int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_atoi(const char *nptr);
+unsigned int	ft_atou(const char *nptr);
 size_t			ft_strlen(const char *str);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
