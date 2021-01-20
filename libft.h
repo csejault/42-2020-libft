@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/20 10:43:43 by csejault         ###   ########.fr       */
+/*   Updated: 2021/01/20 14:14:32 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-#include <limits.h>
+# include <limits.h>
+# include <stdbool.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
@@ -75,6 +76,7 @@ char			*ftus_utoabase(unsigned int toconv, char *baseto);
 char			*ftus_ptohexa(unsigned long nbr);
 char			**ftus_split(char const *s, char c);
 char			**ftus_up_split(int *words, char const *s, char c);
+int				ft_count_split(char **split);
 int				ft_lstsize(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
