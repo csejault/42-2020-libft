@@ -6,23 +6,59 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/01/25 16:40:46 by csejault         ###   ########.fr       */
+/*   Updated: 2021/03/15 16:56:15 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <limits.h>
 # include <stdbool.h>
+# define BMP_TYPE 		0
+# define BMP_SIZE_FILE	2
+# define BMP_OFFSET 		10
+# define BMP_DIB			14
+# define BMP_WIDTH		18
+# define BMP_HEIGHT		22
+# define BMP_PLANES		26
+# define BMP_BPP			28
+# define BMP_SIZE_IMG	34
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
+
+typedef struct s_bmp_header
+{
+  uint16_t  type;             // Magic identifier: 0x4d42
+  uint32_t  size;             // File size in bytes
+  uint16_t  reserved1;        // Not used
+  uint16_t  reserved2;        // Not used
+  uint32_t  offset;           // Offset to image data in bytes from beginning of file (54 bytes)
+  uint32_t  dib_header_size;  // DIB Header size in bytes (40 bytes)
+  int32_t   width_px;         // Width of the image
+  int32_t   height_px;        // Height of image
+  uint16_t  num_planes;       // Number of color planes
+  uint16_t  bits_per_pixel;   // Bits per pixel
+  uint32_t  compression;      // Compression type
+  uint32_t  image_size_bytes; // Image size in bytes
+  int32_t   x_resolution_ppm; // Pixels per meter
+  int32_t   y_resolution_ppm; // Pixels per meter
+  uint32_t  num_colors;       // Number of colors
+  uint32_t  important_colors; // Important colors
+}			t_bmp_header;
+
+typedef struct	s_bmp_img
+{
+    t_bmp_header header;
+    unsigned char* data;
+}				t_bmp_img;
 
 typedef struct	s_gnl
 {
