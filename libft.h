@@ -6,7 +6,7 @@
 /*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/03/15 16:56:15 by csejault         ###   ########.fr       */
+/*   Updated: 2021/03/17 09:49:30 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_str_is_nbr(char *str);
+int				ft_str_is_spc(char *str);
 int				ftus_gnl(int fd, char **line);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
