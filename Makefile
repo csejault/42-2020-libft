@@ -57,6 +57,7 @@ SRC     = ft_atoi.c \
 		ft_free_split.c \
 		ft_atou.c \
 		ft_count_split.c \
+		ft_count_til_no_c.c \
 		ftus_split_bslash.c \
 		
 OBJ		= $(SRC:.c=.o)

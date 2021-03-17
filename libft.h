@@ -6,7 +6,7 @@
 /*   By: csejault <clement.sejault@outlook.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 10:02:32 by csejault          #+#    #+#             */
-/*   Updated: 2021/03/17 10:09:31 by csejault         ###   ########.fr       */
+/*   Updated: 2021/03/17 10:28:11 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ char			**ftus_split(char const *s, char c);
 char			**ftus_split_bslash(char const *s, char c);
 char			**ftus_up_split(int *words, char const *s, char c);
 int				ft_count_split(char **split);
+int				ft_count_til_no_c(char *str, char c);
 int				ft_lstsize(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
