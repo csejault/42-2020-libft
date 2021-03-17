@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csejault <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: csejault <clement.sejault@outlook.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 19:54:42 by csejault          #+#    #+#             */
-/*   Updated: 2021/03/17 09:49:30 by csejault         ###   ########.fr       */
+/*   Created: 2021/03/17 10:02:32 by csejault          #+#    #+#             */
+/*   Updated: 2021/03/17 10:09:31 by csejault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <sys/uio.h>
 # include <limits.h>
 # include <stdbool.h>
-# define BMP_TYPE 		0
+# define BMP_TYPE		0
 # define BMP_SIZE_FILE	2
-# define BMP_OFFSET 		10
+# define BMP_OFFSET			10
 # define BMP_DIB			14
 # define BMP_WIDTH		18
 # define BMP_HEIGHT		22
@@ -34,30 +34,30 @@
 #  define BUFFER_SIZE 1
 # endif
 
-typedef struct s_bmp_header
+typedef struct	s_bmp_header
 {
-  uint16_t  type;             // Magic identifier: 0x4d42
-  uint32_t  size;             // File size in bytes
-  uint16_t  reserved1;        // Not used
-  uint16_t  reserved2;        // Not used
-  uint32_t  offset;           // Offset to image data in bytes from beginning of file (54 bytes)
-  uint32_t  dib_header_size;  // DIB Header size in bytes (40 bytes)
-  int32_t   width_px;         // Width of the image
-  int32_t   height_px;        // Height of image
-  uint16_t  num_planes;       // Number of color planes
-  uint16_t  bits_per_pixel;   // Bits per pixel
-  uint32_t  compression;      // Compression type
-  uint32_t  image_size_bytes; // Image size in bytes
-  int32_t   x_resolution_ppm; // Pixels per meter
-  int32_t   y_resolution_ppm; // Pixels per meter
-  uint32_t  num_colors;       // Number of colors
-  uint32_t  important_colors; // Important colors
-}			t_bmp_header;
+	uint16_t	type;
+	uint32_t	size;
+	uint16_t	reserved1;
+	uint16_t	reserved2;
+	uint32_t	offset;
+	uint32_t	dib_header_size;
+	int32_t		width_px;
+	int32_t		height_px;
+	uint16_t	num_planes;
+	uint16_t	bits_per_pixel;
+	uint32_t	compression;
+	uint32_t	image_size_bytes;
+	int32_t		x_resolution_ppm;
+	int32_t		y_resolution_ppm;
+	uint32_t	num_colors;
+	uint32_t	important_colors;
+}				t_bmp_header;
 
 typedef struct	s_bmp_img
 {
-    t_bmp_header header;
-    unsigned char* data;
+	t_bmp_header header;
+	unsigned char* data;
 }				t_bmp_img;
 
 typedef struct	s_gnl
@@ -75,7 +75,7 @@ typedef struct	s_list
 t_list			*ftus_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ftus_lstmap
-				(t_list *lst, void*(*f)(void *), void(*del)(void *));
+(t_list *lst, void*(*f)(void *), void(*del)(void *));
 void			ft_free_split(char **tofree);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstadd_back(t_list **alst, t_list *new);
