@@ -62,7 +62,7 @@ SRC     = ft_atoi.c \
 		
 OBJ		= $(SRC:.c=.o)
 NAME		= libft.a
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -g
 CC		= clang
 RM		= rm -f
 
